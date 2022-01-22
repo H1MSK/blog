@@ -37,7 +37,7 @@
   
     <script src='//cdn.jsdelivr.net/npm/@waline/client'></script>
   
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.0.0"></head>
 <body>
 <div id="container">
   <div id="wrap">
@@ -48,7 +48,96 @@
       <h1 id="logo-wrap">
         <a href="/" id="logo">H1&#39;s Blog</a>
       </h1>
-      
+      <h2 id="subtitle-wrap">
+        <a href="/" id="subtitle"></a>
+      </h2>
+      <!-- typed.js provides animation -->
+      <script src="/js/typed.js"></script>
+      <!-- Random subtitle -->
+      <script>
+        (function () {
+        var typed = new Typed("#subtitle", {
+          typeSpeed: 40,
+          backSpeed: 10,
+          backDelay: 5000,
+          startDelay: 500,
+          shuffle: true,
+          loop: true,
+          strings: [
+            
+            "Someone is climbing.",
+            
+            "Keep conscience clear, and never fear.",
+            
+            "Equivocation is the first cousin to lie.",
+            
+            "He laughs best who laughs last.",
+            
+            "It is the first step that costs.",
+            
+            "Keep on going, and never give up.",
+            
+            "Wasting time is robbing oneself.",
+            
+            "Great oaks from little acorns grow.",
+            
+            "Take control of your own destiny.",
+            
+            "Sweat is the lubricant of success.",
+            
+            "All time is no time when it is past.",
+            
+            "Truth is the daughter of time.",
+            
+            "There is no royal road to learning.",
+            
+            "The only constant in the world is always changing.",
+            
+            "Loneliness is a person&#39;s carnival, carnival is a group of people&#39;s loneliness.",
+            
+            "The shortest way to do many things is to do only one thing at a time.",
+            
+            "Giving is a reward of itself.",
+            
+            "The secret of success is constancy to purpose.",
+            
+            "Never put off what you can do today until tomorrow.",
+            
+            "You cannot change what you refuse to confront.",
+            
+            "Suffering is the most powerful teacher of life.",
+            
+            "A friend without faults will never be found.",
+            
+            "The best things come when you least expect them to.",
+            
+            "If you don&#39;t aim high, you will never hit high.",
+            
+            "Every man is best know to himself.",
+            
+            "Never underestimate your power to change yourself.",
+            
+            "A good fame is better than a good face.",
+            
+            "Let thy vices die before thee.",
+            
+            "Brief is life, but love is long.",
+            
+            "Be confident, not arrogant.",
+            
+            "To be first, best or different.",
+            
+            "A fall into the pit, a gain in your wit.",
+            
+            "One today is worth two tomorrows.",
+            
+            "Zero in your target,and go for it.",
+            
+            "Keep a young heart, be a simple people.",
+            
+          ]});
+        })();
+      </script>
     </div>
     <div id="header-inner" class="inner">
       <nav id="main-nav">
@@ -93,7 +182,7 @@
   
     <div class="article-gallery-photos">
     
-      <a class="article-gallery-img fancybox" href="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/logo.png" rel="gallery_cktzs4jsn000x4mkgdaux9yea">
+      <a class="article-gallery-img fancybox" href="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/logo.png" rel="gallery_ckyq6ooj8000q5okgcvuu0vh5">
         <img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/logo.png" itemprop="image">
       </a>
     
@@ -115,7 +204,6 @@
       
         <p>你收到了来自<code>me@mydomain.com</code>的新邮件，是否查看？</p>
 <span id="more"></span>
-
 <hr>
 <h2 id="Axigen-简介"><a href="#Axigen-简介" class="headerlink" title="Axigen 简介"></a>Axigen 简介</h2><p><a target="_blank" rel="noopener" href="https://www.axigen.com/">官网链接</a></p>
 <p>在线Demo: <a target="_blank" rel="noopener" href="https://web.axigenmail.com/">WebMail</a> / <a target="_blank" rel="noopener" href="https://demo.axigenmail.com/">WebAdmin</a></p>
@@ -129,41 +217,21 @@
 <li>Ubuntu 18.04 (或其他Linux系统，但下文均基于此操作系统)</li>
 </ul>
 <h2 id="安装-Axigen"><a href="#安装-Axigen" class="headerlink" title="安装 Axigen"></a>安装 Axigen</h2><p><strong>注意</strong>: 记录本文时，<code>Axigen</code>最新版本为<code>10.3.1</code>，最新版本安装方法可能不同</p>
-<p>登录<a target="_blank" rel="noopener" href="https://www.axigen.com/mail-server/download/#">官网下载页面</a>, <strong>根据自己的系统</strong>选择合适的版本，并<strong>下载</strong></p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E4%B8%8B%E8%BD%BD%E9%A1%B5%E9%9D%A2.png" class="" title="下载页面">
-
-<p>下载完成后根据提示<strong>运行文件</strong>（下方为Debian风味版本安装提示界面）</p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/Debian%E9%A3%8E%E5%91%B3.png" class="" title="Debian风味">
-<p>图片中的命令：<code>sh axigen-10.3.1.amd64.deb.run</code></p>
+<p>登录<a target="_blank" rel="noopener" href="https://www.axigen.com/mail-server/download/#">官网下载页面</a>, <strong>根据自己的系统</strong>选择合适的版本，并<strong>下载</strong><br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E4%B8%8B%E8%BD%BD%E9%A1%B5%E9%9D%A2.png" class="" title="下载页面"></p>
+<p>下载完成后根据提示<strong>运行文件</strong>（下方为Debian风味版本安装提示界面）<br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/Debian%E9%A3%8E%E5%91%B3.png" class="" title="Debian风味"><br>图片中的命令：<code>sh axigen-10.3.1.amd64.deb.run</code></p>
 <p>(以下图片及部分内容源自<a target="_blank" rel="noopener" href="https://www.axigen.com/documentation/installing-axigen-on-linux-p1409126">官方安装文档</a>，上面的教程是基于RPM的，所以安装文件不同..)</p>
-<p>运行后会先提示让我们按<code>Enter</code><strong>查看协议</strong></p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%9F%A5%E7%9C%8B%E5%8D%8F%E8%AE%AE.png" class="" title="查看协议">
-
-<p>然后在浏览界面按<code>q</code>退出 (敏锐的我发现了这里的浏览器似乎是<code>vim</code>)</p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%8D%8F%E8%AE%AE%E5%86%85%E5%AE%B9.png" class="" title="协议内容">
-
-<p>退出后输入<code>yes</code>并回车，表示<strong>同意</strong></p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%90%8C%E6%84%8F%E5%8D%8F%E8%AE%AE.png" class="" title="同意协议">
-
+<p>运行后会先提示让我们按<code>Enter</code><strong>查看协议</strong><br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%9F%A5%E7%9C%8B%E5%8D%8F%E8%AE%AE.png" class="" title="查看协议"></p>
+<p>然后在浏览界面按<code>q</code>退出 (敏锐的我发现了这里的浏览器似乎是<code>vim</code>)<br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%8D%8F%E8%AE%AE%E5%86%85%E5%AE%B9.png" class="" title="协议内容"></p>
+<p>退出后输入<code>yes</code>并回车，表示<strong>同意</strong><br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%90%8C%E6%84%8F%E5%8D%8F%E8%AE%AE.png" class="" title="同意协议"></p>
 <p>然后等待脚本自动验证下载并解压，并自动运行安装脚本。据官网所说，安装脚本是一个基于菜单的向导程序，允许用户安装、卸载、升级<code>Axigen</code>或阅读相关文档。</p>
-<p>成功后如图所示：</p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%AE%89%E8%A3%85%E9%80%89%E9%A1%B9.png" class="" title="安装选项">
-
+<p>成功后如图所示：<br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%AE%89%E8%A3%85%E9%80%89%E9%A1%B9.png" class="" title="安装选项"></p>
 <p>这里我们选择<code>1. Install axigen</code>进行<strong>安装</strong>。</p>
-<p>成功后结果如图</p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F.png" class="" title="安装成功">
-
+<p>成功后结果如图<br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F.png" class="" title="安装成功"></p>
 <p>注意控制台内会打印<code>WebAdmin</code>的网址（图中有两个，IPv4地址为<code>https://192.168.4.131:9443/</code>），我们还需进入网址进行设置。</p>
 <h2 id="初始化设置"><a href="#初始化设置" class="headerlink" title="初始化设置"></a>初始化设置</h2><p>（以下内容译自<a target="_blank" rel="noopener" href="https://www.axigen.com/documentation/performing-the-initial-configuration-onboarding-p21594150">官方文档</a>，图片源自相同链接）</p>
 <p>登入上面安装时显示的网址，它会带领你完成初始化设定。</p>
-<p>第一步，你会被要求<strong>浏览并同意EULA</strong>并<strong>设置管理员密码</strong>。</p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%8D%8F%E8%AE%AE.png" class="" title="协议">
-
-
-<p>然后，我们需要选择<strong>许可证类型</strong>。如果我们已经申请了许可证，可以选择第三个选项，或者我们也可以选择免费版本，或者试用60天。选择后，程序将会应用许可证并重启，我们只需等待重启完成并继续（<strong>不用</strong>关闭网页或刷新！）</p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E9%80%89%E6%8B%A9%E8%AE%B8%E5%8F%AF%E8%AF%81.png" class="" title="选择许可证">
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E9%87%8D%E5%90%AF.png" class="" title="重启">
-
+<p>第一步，你会被要求<strong>浏览并同意EULA</strong>并<strong>设置管理员密码</strong>。<br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%8D%8F%E8%AE%AE.png" class="" title="协议"><br></p>
+<p>然后，我们需要选择<strong>许可证类型</strong>。如果我们已经申请了许可证，可以选择第三个选项，或者我们也可以选择免费版本，或者试用60天。选择后，程序将会应用许可证并重启，我们只需等待重启完成并继续（<strong>不用</strong>关闭网页或刷新！）<br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E9%80%89%E6%8B%A9%E8%AE%B8%E5%8F%AF%E8%AF%81.png" class="" title="选择许可证"><br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E9%87%8D%E5%90%AF.png" class="" title="重启"></p>
 <blockquote>
 <p>用户也可以跳过上面的所有步骤。在这种情况下，我们可以在之后选择许可证类型。在没有选择之前，<code>Axigen</code>会在<code>Demo</code>模式运行3天。</p>
 </blockquote>
@@ -172,97 +240,53 @@
 <p><code>Axigen</code>在安装时会生成一个自签名证书，并默认应用在一些服务上。这会导致许多客户端产生SSL证书警告，所以我们强烈推荐用户生成或上传一个有效的证书供这些服务使用。</p>
 </blockquote>
 <img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E9%BB%98%E8%AE%A4%E6%9C%8D%E5%8A%A1.png" class="" title="默认服务">
-
 <p>然后添加<strong>主域名</strong></p>
 <blockquote>
 <p>在<code>Axigen</code>中，注册了主域名的用户可以通过他们的本地部分(local part)登录（例如，如果主域名为<code>example.com</code>，用户<code>jone.doe@example.com</code>也可以通过<code>jone.doe</code>和登录。这部分对其他域名无效）</p>
 <p>每一个域名都有一个<code>postmaster</code>账号。请为这个账号设置一个密码并将密码储存在安全的地方。这个账号会被用来发送不同的系统提示(system alerts).</p>
 </blockquote>
 <img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%BB%E5%8A%A0%E4%B8%BB%E5%9F%9F%E5%90%8D.png" class="" title="添加主域名">
-
-<p>大功告成！网站将跳转到管理员仪表板。</p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%AE%BE%E7%BD%AE%E6%88%90%E5%8A%9F.png" class="" title="设置成功">
-
+<p>大功告成！网站将跳转到管理员仪表板。<br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%AE%BE%E7%BD%AE%E6%88%90%E5%8A%9F.png" class="" title="设置成功"></p>
 <h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>这里根据域名解析提供商的不同，配置方法会有所不同，故不提供详细说明。</p>
 <p>我们需要添加以下两条记录:</p>
 <ul>
 <li>邮件服务器域名A记录 (如<code>mail.example.com</code>)，指向服务器的IP地址</li>
 <li>根域的MX记录，指向服务器所使用的域名</li>
 </ul>
-<h2 id="添加用户账号"><a href="#添加用户账号" class="headerlink" title="添加用户账号"></a>添加用户账号</h2><p>在管理员界面左侧的目录中选择<code>DOMAINS &amp; ACCOUNTS</code>&gt;<code>Manage Accounts</code>,进入如下界面</p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7.png" class="" title="管理用户">
-
-<p>单击右侧的<code>Add Account</code>,输入相关内容（账号、密码和域名为必填项），点击<code>QUICK ADD</code></p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7.png" class="" title="添加用户">
-
+<h2 id="添加用户账号"><a href="#添加用户账号" class="headerlink" title="添加用户账号"></a>添加用户账号</h2><p>在管理员界面左侧的目录中选择<code>DOMAINS &amp; ACCOUNTS</code>&gt;<code>Manage Accounts</code>,进入如下界面<br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7.png" class="" title="管理用户"></p>
+<p>单击右侧的<code>Add Account</code>,输入相关内容（账号、密码和域名为必填项），点击<code>QUICK ADD</code><br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7.png" class="" title="添加用户"></p>
 <p>成功！</p>
-<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p>在浏览器地址栏中，输入绑定的域名或服务器IP地址（与管理员页面域名相同，默认为80/443端口）并访问<br>登陆界面如下</p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E7%99%BB%E9%99%86%E7%95%8C%E9%9D%A2.png" class="" title="登录界面">
-
+<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p>在浏览器地址栏中，输入绑定的域名或服务器IP地址（与管理员页面域名相同，默认为80/443端口）并访问<br>登陆界面如下<br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E7%99%BB%E9%99%86%E7%95%8C%E9%9D%A2.png" class="" title="登录界面"></p>
 <h2 id="开启SSL"><a href="#开启SSL" class="headerlink" title="开启SSL"></a>开启SSL</h2><p>在开启SSL之前，请务必确认我们自己添加的域名解析正常工作</p>
 <p>首先我们需要申请Let’s encrypt的SSL证书</p>
-<p>在管理员界面目录中选择<code>SECURITY &amp; FILTERING</code>&gt;<code>SSL Certificates</code>,进入如下界面</p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E7%AE%A1%E7%90%86%E8%AF%81%E4%B9%A6.png" class="" title="管理证书">
-
-<p>单击<code>ADD</code>, 在弹出界面中下方选择<code>Let&#39;s Encrypt</code>，填入邮件域名(如<code>mail.example.com</code>，勾选同意协议，点击<code>GENERATE CERTIFICATE</code></p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6.png" class="" title="申请证书">
-
+<p>在管理员界面目录中选择<code>SECURITY &amp; FILTERING</code>&gt;<code>SSL Certificates</code>,进入如下界面<br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E7%AE%A1%E7%90%86%E8%AF%81%E4%B9%A6.png" class="" title="管理证书"></p>
+<p>单击<code>ADD</code>, 在弹出界面中下方选择<code>Let&#39;s Encrypt</code>，填入邮件域名(如<code>mail.example.com</code>，勾选同意协议，点击<code>GENERATE CERTIFICATE</code><br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6.png" class="" title="申请证书"></p>
 <p>然后一个服务一个服务地设置（略麻烦…）</p>
 <p>在左侧的<code>SERVICES</code>项中，对<code>SMTP Receiving</code>、<code>IMAP</code>、<code>WebMail</code>、<code>WebAdmin</code>和<code>CLI</code>分别进行如下操作：</p>
-<p>进入对应的服务页面，点击<code>Listeners</code>中带有<code>SSL</code>的项，或点击右侧对应的<code>Edit</code>（如下方的<code>0.0.0.0:465</code>）</p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/SMTP%E9%85%8D%E7%BD%AE%E9%A1%B5%E9%9D%A2.png" class="" title="SMTP配置页面">
-
-<p>单击上方的<code>SSL SETTINGS</code></p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/SMTP%E7%AB%AF%E5%8F%A3%E8%AE%BE%E7%BD%AE%E7%95%8C%E9%9D%A2.png" class="" title="SMTP端口设置界面">
-
-<p>在这里选择刚刚申请的证书，然后点击下面的<code>SAVE CONFIGURATION</code></p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/SMTP_SSL%E8%AE%BE%E7%BD%AE.png" class="" title="SMTP SSL设置">
-
+<p>进入对应的服务页面，点击<code>Listeners</code>中带有<code>SSL</code>的项，或点击右侧对应的<code>Edit</code>（如下方的<code>0.0.0.0:465</code>）<br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/SMTP%E9%85%8D%E7%BD%AE%E9%A1%B5%E9%9D%A2.png" class="" title="SMTP配置页面"></p>
+<p>单击上方的<code>SSL SETTINGS</code><br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/SMTP%E7%AB%AF%E5%8F%A3%E8%AE%BE%E7%BD%AE%E7%95%8C%E9%9D%A2.png" class="" title="SMTP端口设置界面"></p>
+<p>在这里选择刚刚申请的证书，然后点击下面的<code>SAVE CONFIGURATION</code><br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/SMTP_SSL%E8%AE%BE%E7%BD%AE.png" class="" title="SMTP SSL设置"></p>
 <p>记得要对<code>SMTP Receiving</code>、<code>IMAP</code>、<code>WebMail</code>、<code>WebAdmin</code>和<code>CLI</code>这<strong>五个服务</strong>的<strong>每一个SSL端口</strong>，都设置一遍…</p>
 <p>(或者你可以跟我一样，关闭IPv6的端口…)</p>
-<p>最后，开启80端口和9000端口的自动重定向。<br>进入<code>WebMail</code>服务的80端口配置</p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/WebMail_80%E7%AB%AF%E5%8F%A3.png" class="" title="WebMail 80端口">
-
-<p>在<code>SSL SETTINGS</code>设置中，勾选<code>Redirect to secure login page</code>，选择<code>Automatically</code></p>
-<img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/WebMail_80%E7%AB%AF%E5%8F%A3_SSL%E8%AE%BE%E7%BD%AE.png" class="" title="WebMail 80端口 SSL设置">
-
+<p>最后，开启80端口和9000端口的自动重定向。<br>进入<code>WebMail</code>服务的80端口配置<br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/WebMail_80%E7%AB%AF%E5%8F%A3.png" class="" title="WebMail 80端口"></p>
+<p>在<code>SSL SETTINGS</code>设置中，勾选<code>Redirect to secure login page</code>，选择<code>Automatically</code><br><img src="/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/WebMail_80%E7%AB%AF%E5%8F%A3_SSL%E8%AE%BE%E7%BD%AE.png" class="" title="WebMail 80端口 SSL设置"></p>
 <p>并对<code>WebAdmin</code>服务的9000端口开启相同配置。</p>
 <p>完成！</p>
 <h2 id="开启-ClamAV-反病毒系统-未完成"><a href="#开启-ClamAV-反病毒系统-未完成" class="headerlink" title="开启 ClamAV 反病毒系统 (未完成)"></a>开启 ClamAV 反病毒系统 (未完成)</h2><p>通过SSH登入控制台，进行如下操作：</p>
-<p>使用<code>apt-get</code>安装<code>ClamAV</code>:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install clamav-base clamav-daemon clamav-docs clamav</span><br></pre></td></tr></table></figure>
-
-<p>将用户<code>clamav</code>添加进<code>axigen</code>用户组:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpasswd -a clamav axigen</span><br></pre></td></tr></table></figure>
-
-<p>打开<code>ClamAV</code>配置文件<code>/etc/clamav/clamd.conf</code>,在其末尾添加如下两行:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Added by H1MSK</span><br><span class="line">TCPSocket 3310</span><br><span class="line">TCPAddr 127.0.0.1</span><br></pre></td></tr></table></figure>
-
-<p>重启防病毒服务:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/clamav-daemon restart</span><br></pre></td></tr></table></figure>
-
+<p>使用<code>apt-get</code>安装<code>ClamAV</code>:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install clamav-base clamav-daemon clamav-docs clamav</span><br></pre></td></tr></table></figure></p>
+<p>将用户<code>clamav</code>添加进<code>axigen</code>用户组:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpasswd -a clamav axigen</span><br></pre></td></tr></table></figure></p>
+<p>打开<code>ClamAV</code>配置文件<code>/etc/clamav/clamd.conf</code>,在其末尾添加如下两行:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Added by H1MSK</span><br><span class="line">TCPSocket 3310</span><br><span class="line">TCPAddr 127.0.0.1</span><br></pre></td></tr></table></figure></p>
+<p>重启防病毒服务:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/clamav-daemon restart</span><br></pre></td></tr></table></figure></p>
 <p>此时本地服务安装配置完毕。之后登录WebAdmin，依次进入<br><code>SECURITY &amp; FILTERING</code>&gt;<code>AntiVirus &amp; AntiSpam</code>&gt;<code>SUPPORTED APPLICATIONS</code>，<br>将<code>ClamAV</code>启用就好啦</p>
 <p><strong>并不！！</strong></p>
 <p>在这里我发现<code>ClamAV</code>的状态从<code>Could not connect</code>变成了<code>Not Available</code>…</p>
 <p>然后各种查日志、查资料，都没有办法成功让两者正常通讯，只好作罢…</p>
-<p>附上报错日志:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># clamav</span><br><span class="line">~/var/opt/axigen//queue/26/DE950.00: Can&#x27;t open file or directory ERROR</span><br><span class="line"></span><br><span class="line"># Axigen</span><br><span class="line">Filter ClamAV(127.0.0.1:3310):[ERROR]: Can&#x27;t open file or directory ERROR</span><br></pre></td></tr></table></figure>
-
+<p>附上报错日志:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># clamav</span><br><span class="line">~/var/opt/axigen//queue/26/DE950.00: Can&#x27;t open file or directory ERROR</span><br><span class="line"></span><br><span class="line"># Axigen</span><br><span class="line">Filter ClamAV(127.0.0.1:3310):[ERROR]: Can&#x27;t open file or directory ERROR</span><br></pre></td></tr></table></figure></p>
 <h2 id="开启-SpamAssassin-防垃圾邮件"><a href="#开启-SpamAssassin-防垃圾邮件" class="headerlink" title="开启 SpamAssassin 防垃圾邮件"></a>开启 SpamAssassin 防垃圾邮件</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://www.axigen.com/forum/forum/support-discussion-lists/spam-virus-protection/101-howto-setup-spamassassin-to-work-with-axigen?t=100">[HOWTO] Setup SpamAssassin to work with Axigen (#1)</a></p>
-<p>为了在<code>Axigen</code>中开启<code>spamassassin</code>，我们需要先安装它:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install spamassassin</span><br></pre></td></tr></table></figure>
-
-<p>然后我们需要在设置中开启它。打开<code>/etc/default/spamassassin</code>, 将</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ENABLE=0</span><br></pre></td></tr></table></figure>
-<p>更改为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ENABLE=1</span><br></pre></td></tr></table></figure>
-
-<p>保存文件，启动服务：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/spamassassin start</span><br></pre></td></tr></table></figure>
-
-<p>检查SpamAssassin是否正常启动，键入以下命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tlpn</span><br></pre></td></tr></table></figure>
-<p>并查看是否端口783被<code>spamd</code>监听</p>
+<p>为了在<code>Axigen</code>中开启<code>spamassassin</code>，我们需要先安装它:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install spamassassin</span><br></pre></td></tr></table></figure></p>
+<p>然后我们需要在设置中开启它。打开<code>/etc/default/spamassassin</code>, 将<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ENABLE=0</span><br></pre></td></tr></table></figure><br>更改为<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ENABLE=1</span><br></pre></td></tr></table></figure></p>
+<p>保存文件，启动服务：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/spamassassin start</span><br></pre></td></tr></table></figure></p>
+<p>检查SpamAssassin是否正常启动，键入以下命令<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tlpn</span><br></pre></td></tr></table></figure><br>并查看是否端口783被<code>spamd</code>监听</p>
 <p>之后登录WebAdmin，依次进入<br><code>SECURITY &amp; FILTERING</code>&gt;<code>AntiVirus &amp; AntiSpam</code>&gt;<code>SUPPORTED APPLICATIONS</code>，<br>启用<code>SpamAssassin</code></p>
 <p>OK~</p>
 
@@ -270,7 +294,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://blog.h1msk.cc/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/" data-id="cktzs4jsn000x4mkgdaux9yea" class="article-share-link" data-share="baidu" data-title="搭建Axigen邮件服务器">Share</a>
+        <a data-url="https://blog.h1msk.cc/2020/04/27/%E6%90%AD%E5%BB%BAAxigen%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/" data-id="ckyq6ooj8000q5okgcvuu0vh5" class="article-share-link" data-share="baidu" data-title="搭建Axigen邮件服务器">Share</a>
       
 
       
@@ -333,7 +357,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Axigen/" rel="tag">Axigen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/" rel="tag">BUG</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CubeMX/" rel="tag">CubeMX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MSYS2/" rel="tag">MSYS2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NPM/" rel="tag">NPM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NRM/" rel="tag">NRM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nextcloud/" rel="tag">Nextcloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pacman/" rel="tag">Pacman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/" rel="tag">SSH</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STM32/" rel="tag">STM32</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/USB/" rel="tag">USB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unity/" rel="tag">Unity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL/" rel="tag">WSL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Waline/" rel="tag">Waline</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/live2d/" rel="tag">live2d</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" rel="tag">个人网站</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8D%A2%E6%BA%90/" rel="tag">换源</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%9B%98/" rel="tag">网盘</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" rel="tag">评论系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag">运维</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">邮件服务器</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/A/" rel="tag">A*</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Axigen/" rel="tag">Axigen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/" rel="tag">BUG</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bitset/" rel="tag">Bitset</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/" rel="tag">C&#x2F;C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CubeMX/" rel="tag">CubeMX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MSYS2/" rel="tag">MSYS2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NPM/" rel="tag">NPM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NRM/" rel="tag">NRM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nextcloud/" rel="tag">Nextcloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pacman/" rel="tag">Pacman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/" rel="tag">SSH</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STM32/" rel="tag">STM32</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/USB/" rel="tag">USB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unity/" rel="tag">Unity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL/" rel="tag">WSL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Waline/" rel="tag">Waline</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/live2d/" rel="tag">live2d</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" rel="tag">个人网站</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E8%B7%AF/" rel="tag">思路</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8D%A2%E6%BA%90/" rel="tag">换源</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%9B%98/" rel="tag">网盘</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" rel="tag">评论系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag">运维</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">邮件服务器</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -342,7 +366,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Axigen/" style="font-size: 10px;">Axigen</a> <a href="/tags/BUG/" style="font-size: 13.33px;">BUG</a> <a href="/tags/CubeMX/" style="font-size: 10px;">CubeMX</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/MSYS2/" style="font-size: 10px;">MSYS2</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/NPM/" style="font-size: 13.33px;">NPM</a> <a href="/tags/NRM/" style="font-size: 10px;">NRM</a> <a href="/tags/Nextcloud/" style="font-size: 10px;">Nextcloud</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Pacman/" style="font-size: 10px;">Pacman</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/STM32/" style="font-size: 10px;">STM32</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/USB/" style="font-size: 10px;">USB</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Unity/" style="font-size: 10px;">Unity</a> <a href="/tags/WSL/" style="font-size: 10px;">WSL</a> <a href="/tags/Waline/" style="font-size: 10px;">Waline</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/live2d/" style="font-size: 10px;">live2d</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" style="font-size: 13.33px;">个人网站</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13.33px;">前端</a> <a href="/tags/%E6%8D%A2%E6%BA%90/" style="font-size: 13.33px;">换源</a> <a href="/tags/%E7%BD%91%E7%9B%98/" style="font-size: 10px;">网盘</a> <a href="/tags/%E7%BE%8E%E5%8C%96/" style="font-size: 16.67px;">美化</a> <a href="/tags/%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">评论系统</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a> <a href="/tags/%E8%BF%90%E7%BB%B4/" style="font-size: 10px;">运维</a> <a href="/tags/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">邮件服务器</a>
+      <a href="/tags/A/" style="font-size: 10px;">A*</a> <a href="/tags/Axigen/" style="font-size: 10px;">Axigen</a> <a href="/tags/BUG/" style="font-size: 13.33px;">BUG</a> <a href="/tags/Bitset/" style="font-size: 10px;">Bitset</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/CubeMX/" style="font-size: 10px;">CubeMX</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/MSYS2/" style="font-size: 10px;">MSYS2</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/NPM/" style="font-size: 13.33px;">NPM</a> <a href="/tags/NRM/" style="font-size: 10px;">NRM</a> <a href="/tags/Nextcloud/" style="font-size: 10px;">Nextcloud</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Pacman/" style="font-size: 10px;">Pacman</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/STM32/" style="font-size: 10px;">STM32</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/USB/" style="font-size: 10px;">USB</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Unity/" style="font-size: 10px;">Unity</a> <a href="/tags/WSL/" style="font-size: 10px;">WSL</a> <a href="/tags/Waline/" style="font-size: 10px;">Waline</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/live2d/" style="font-size: 10px;">live2d</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" style="font-size: 13.33px;">个人网站</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13.33px;">前端</a> <a href="/tags/%E6%80%9D%E8%B7%AF/" style="font-size: 10px;">思路</a> <a href="/tags/%E6%8D%A2%E6%BA%90/" style="font-size: 13.33px;">换源</a> <a href="/tags/%E7%BD%91%E7%9B%98/" style="font-size: 10px;">网盘</a> <a href="/tags/%E7%BE%8E%E5%8C%96/" style="font-size: 16.67px;">美化</a> <a href="/tags/%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">评论系统</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a> <a href="/tags/%E8%BF%90%E7%BB%B4/" style="font-size: 10px;">运维</a> <a href="/tags/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">邮件服务器</a>
     </div>
   </div>
 
@@ -351,7 +375,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">12</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">12</span></li></ul>
     </div>
   </div>
 
@@ -361,6 +385,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/01/22/%E2%80%9C%E5%8D%81%E6%BB%B4%E6%B0%B4%E2%80%9D%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4%E6%B1%82%E8%A7%A3%E7%AE%97%E6%B3%95%E7%9A%84%E7%BC%96%E5%86%99%E8%BF%87%E7%A8%8B/">“十滴水”操作步骤求解算法的编写过程</a>
+          </li>
         
           <li>
             <a href="/2021/09/25/Hexo%E5%8D%87%E7%BA%A7%E4%B8%8E%E9%97%AE%E9%A2%98%E6%8E%92%E9%99%A4-TypeError-line-matchAll-is-not-a-function/">Hexo升级与问题排除(TypeError: line.matchAll is not a function)</a>
@@ -376,10 +404,6 @@
         
           <li>
             <a href="/2021/02/20/%E8%BD%AC-wsl%E5%AF%BC%E8%87%B4vmmem%E5%8D%A0%E7%94%A8%E9%AB%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">[转] wsl导致vmmem占用高解决办法</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/08/%E8%BD%AC-Hyper-V%E5%AF%BC%E8%87%B41024-1123%E8%8C%83%E5%9B%B4%E5%86%85%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E9%97%AE%E9%A2%98/">[转] Hyper-V导致1024-1123范围内端口被占用问题</a>
           </li>
         
       </ul>
@@ -417,7 +441,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2021 H1MSK<br>
+      &copy; 2022 H1MSK<br>
       Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
       .
       Theme based on <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
