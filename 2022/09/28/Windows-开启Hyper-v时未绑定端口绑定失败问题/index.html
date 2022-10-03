@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Windows 开启Hyper-v时未绑定端口绑定失败问题 | H1&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第二篇相同问题的文章.. 第一篇在这里 Hyper-V 保留特定范围端口的使用权，导致应用程序绑定端口失败">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 开启Hyper-v时未绑定端口绑定失败问题">
+<meta property="og:url" content="https://blog.h1msk.cc/2022/09/28/Windows-%E5%BC%80%E5%90%AFHyper-v%E6%97%B6%E6%9C%AA%E7%BB%91%E5%AE%9A%E7%AB%AF%E5%8F%A3%E7%BB%91%E5%AE%9A%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="H1&#39;s Blog">
+<meta property="og:description" content="第二篇相同问题的文章.. 第一篇在这里 Hyper-V 保留特定范围端口的使用权，导致应用程序绑定端口失败">
+<meta property="og:locale">
+<meta property="og:image" content="https://blog.h1msk.cc/2022/09/28/Windows-%E5%BC%80%E5%90%AFHyper-v%E6%97%B6%E6%9C%AA%E7%BB%91%E5%AE%9A%E7%AB%AF%E5%8F%A3%E7%BB%91%E5%AE%9A%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/ssr%E7%BB%91%E5%AE%9A%E5%A4%B1%E8%B4%A5.png">
+<meta property="og:image" content="https://blog.h1msk.cc/2022/09/28/Windows-%E5%BC%80%E5%90%AFHyper-v%E6%97%B6%E6%9C%AA%E7%BB%91%E5%AE%9A%E7%AB%AF%E5%8F%A3%E7%BB%91%E5%AE%9A%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/hyper-v%E4%BF%9D%E7%95%99%E7%AB%AF%E5%8F%A3.png">
+<meta property="og:image" content="https://blog.h1msk.cc/2022/09/28/Windows-%E5%BC%80%E5%90%AFHyper-v%E6%97%B6%E6%9C%AA%E7%BB%91%E5%AE%9A%E7%AB%AF%E5%8F%A3%E7%BB%91%E5%AE%9A%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/%E6%9B%B4%E6%94%B9%E5%90%8E%E4%BF%9D%E7%95%99%E7%AB%AF%E5%8F%A3.png">
+<meta property="article:published_time" content="2022-09-28T07:13:17.000Z">
+<meta property="article:modified_time" content="2022-09-28T07:13:17.000Z">
+<meta property="article:author" content="H1MSK">
+<meta property="article:tag" content="网络">
+<meta property="article:tag" content="Bug">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.h1msk.cc/2022/09/28/Windows-%E5%BC%80%E5%90%AFHyper-v%E6%97%B6%E6%9C%AA%E7%BB%91%E5%AE%9A%E7%AB%AF%E5%8F%A3%E7%BB%91%E5%AE%9A%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/ssr%E7%BB%91%E5%AE%9A%E5%A4%B1%E8%B4%A5.png">
+  
+    <link rel="alternative" href="/atom.xml" title="H1&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+  
+  
+    <script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+    <link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet' />
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">H1&#39;s Blog</a>
+      </h1>
+      <h2 id="subtitle-wrap">
+        <a href="/" id="subtitle"></a>
+      </h2>
+      <!-- typed.js provides animation -->
+      <script src="/js/typed.js"></script>
+      <!-- Random subtitle -->
+      <script>
+        (function () {
+        var typed = new Typed("#subtitle", {
+          typeSpeed: 40,
+          backSpeed: 10,
+          backDelay: 10000,
+          startDelay: 500,
+          shuffle: true,
+          loop: true,
+          strings: [
+            
+            "Someone is climbing.",
+            
+            "Keep conscience clear, and never fear.",
+            
+            "Equivocation is the first cousin to lie.",
+            
+            "He laughs best who laughs last.",
+            
+            "It is the first step that costs.",
+            
+            "Keep on going, and never give up.",
+            
+            "Wasting time is robbing oneself.",
+            
+            "Great oaks from little acorns grow.",
+            
+            "Take control of your own destiny.",
+            
+            "Sweat is the lubricant of success.",
+            
+            "All time is no time when it is past.",
+            
+            "Truth is the daughter of time.",
+            
+            "There is no royal road to learning.",
+            
+            "The only constant in the world is always changing.",
+            
+            "Loneliness is a person&#39;s carnival, carnival is a group of people&#39;s loneliness.",
+            
+            "The shortest way to do many things is to do only one thing at a time.",
+            
+            "Giving is a reward of itself.",
+            
+            "The secret of success is constancy to purpose.",
+            
+            "Never put off what you can do today until tomorrow.",
+            
+            "You cannot change what you refuse to confront.",
+            
+            "Suffering is the most powerful teacher of life.",
+            
+            "A friend without faults will never be found.",
+            
+            "The best things come when you least expect them to.",
+            
+            "If you don&#39;t aim high, you will never hit high.",
+            
+            "Every man is best know to himself.",
+            
+            "Never underestimate your power to change yourself.",
+            
+            "A good fame is better than a good face.",
+            
+            "Let thy vices die before thee.",
+            
+            "Brief is life, but love is long.",
+            
+            "Be confident, not arrogant.",
+            
+            "To be first, best or different.",
+            
+            "A fall into the pit, a gain in your wit.",
+            
+            "One today is worth two tomorrows.",
+            
+            "Zero in your target,and go for it.",
+            
+            "Keep a young heart, be a simple people.",
+            
+          ]});
+        })();
+      </script>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="blog.h1msk.cc">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-Windows-开启Hyper-v时未绑定端口绑定失败问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/09/28/Windows-%E5%BC%80%E5%90%AFHyper-v%E6%97%B6%E6%9C%AA%E7%BB%91%E5%AE%9A%E7%AB%AF%E5%8F%A3%E7%BB%91%E5%AE%9A%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2022-09-28T07:13:17.000Z" itemprop="datePublished">2022-09-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Windows 开启Hyper-v时未绑定端口绑定失败问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第二篇相同问题的文章..</p>
+<p>第一篇在<a href="/2020/12/08/转-Hyper-V导致1024-1123范围内端口被占用问题/">这里</a></p>
+<p>Hyper-V 保留特定范围端口的使用权，导致应用程序绑定端口失败<br><span id="more"></span></p>
+<hr>
+<h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><p>今天启动电脑时，代理报了这个错误</p>
+<img src="/2022/09/28/Windows-%E5%BC%80%E5%90%AFHyper-v%E6%97%B6%E6%9C%AA%E7%BB%91%E5%AE%9A%E7%AB%AF%E5%8F%A3%E7%BB%91%E5%AE%9A%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/ssr%E7%BB%91%E5%AE%9A%E5%A4%B1%E8%B4%A5.png" class="" title="ssr绑定失败">
+<p>管理员执行指令<code>netstat -ano | findstr &quot;1080&quot;</code>试图寻找占用软件时，未发现端口占用</p>
+<p>故而使用STFW技能，搜索到了一篇文章，链接如上</p>
+<h2 id="定位问题"><a href="#定位问题" class="headerlink" title="定位问题"></a>定位问题</h2><p>使用如下命令确定端口是否被Hyper-v保留</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface ipv4 show excludedportrange protocol=tcp</span><br></pre></td></tr></table></figure>
+<p>输出如下内容，确定端口被hyper-v保留</p>
+<img src="/2022/09/28/Windows-%E5%BC%80%E5%90%AFHyper-v%E6%97%B6%E6%9C%AA%E7%BB%91%E5%AE%9A%E7%AB%AF%E5%8F%A3%E7%BB%91%E5%AE%9A%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/hyper-v%E4%BF%9D%E7%95%99%E7%AB%AF%E5%8F%A3.png" class="" title="ssr绑定失败">
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>首先禁用Hyper-V，并重启电脑</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism.exe /Online /<span class="built_in">Disable-Feature</span>:Microsoft<span class="literal">-Hyper-V</span></span><br></pre></td></tr></table></figure>
+<p>重启后，保留需要使用的端口。命令中各参数含义如其英文名所示</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh int ipv4 add excludedportrange protocol=tcp startport=<span class="number">1080</span> numberofports=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>重新更改动态端口区间为49999+</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh int ipv4 <span class="built_in">set</span> dynamicport tcp <span class="built_in">start</span>=<span class="number">49999</span> num=<span class="number">15537</span></span><br></pre></td></tr></table></figure>
+<p>重置网络，暂时不重启</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh winsock reset</span><br></pre></td></tr></table></figure>
+<p>然后开启Hyper-V，重启电脑</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism.exe /Online /<span class="built_in">Enable-Feature</span>:Microsoft<span class="literal">-Hyper-V</span> /All</span><br></pre></td></tr></table></figure>
+<p>再次查询保留端口，输出如下：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh int ipv4 show excludedportrange protocol=tcp</span><br></pre></td></tr></table></figure>
+<img src="/2022/09/28/Windows-%E5%BC%80%E5%90%AFHyper-v%E6%97%B6%E6%9C%AA%E7%BB%91%E5%AE%9A%E7%AB%AF%E5%8F%A3%E7%BB%91%E5%AE%9A%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/%E6%9B%B4%E6%94%B9%E5%90%8E%E4%BF%9D%E7%95%99%E7%AB%AF%E5%8F%A3.png" class="" title="ssr绑定失败">
+<p>问题解决。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.coder.work/article/560990">https://www.coder.work/article/560990</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/yihuajack/article/details/126842823">https://blog.csdn.net/yihuajack/article/details/126842823</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/25643eb9cefb">https://www.jianshu.com/p/25643eb9cefb</a></li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://blog.h1msk.cc/2022/09/28/Windows-%E5%BC%80%E5%90%AFHyper-v%E6%97%B6%E6%9C%AA%E7%BB%91%E5%AE%9A%E7%AB%AF%E5%8F%A3%E7%BB%91%E5%AE%9A%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/" data-id="cl8okt2im000whokg7vnxf3gx" class="article-share-link" data-share="baidu" data-title="Windows 开启Hyper-v时未绑定端口绑定失败问题">Share</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bug/" rel="tag">Bug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/09/29/%E8%84%91%E5%9B%BE%E6%B5%8B%E8%AF%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          脑图测试
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/09/28/%E5%85%AC%E5%BC%8F%E6%B5%8B%E8%AF%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">公式测试</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <div id="comments"></div>
+    <script>
+        Waline.init({
+          el: '#comments',
+          
+          serverURL: 'https://waline.h1msk.cc/',
+          avatarCDN: '',
+          
+          emoji: [
+            'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq',
+            'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili',
+            'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/weibo',
+            'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus',
+            'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba'
+          ]
+        });
+    </script>
+
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Axigen/" rel="tag">Axigen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/" rel="tag">BUG</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bug/" rel="tag">Bug</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/" rel="tag">C&#x2F;C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CubeMX/" rel="tag">CubeMX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MSYS2/" rel="tag">MSYS2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NPM/" rel="tag">NPM</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NRM/" rel="tag">NRM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nextcloud/" rel="tag">Nextcloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pacman/" rel="tag">Pacman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/" rel="tag">SSH</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STM32/" rel="tag">STM32</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/USB/" rel="tag">USB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unity/" rel="tag">Unity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL/" rel="tag">WSL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Waline/" rel="tag">Waline</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apt/" rel="tag">apt</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/live2d/" rel="tag">live2d</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8D%A2%E6%BA%90/" rel="tag">换源</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E9%A1%B5%E9%9D%A2/" rel="tag">测试页面</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%9B%98/" rel="tag">网盘</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BE%8E%E5%8C%96/" rel="tag">美化</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" rel="tag">评论系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">邮件服务器</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Axigen/" style="font-size: 10px;">Axigen</a> <a href="/tags/BUG/" style="font-size: 18px;">BUG</a> <a href="/tags/Bug/" style="font-size: 12px;">Bug</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/CubeMX/" style="font-size: 10px;">CubeMX</a> <a href="/tags/Hexo/" style="font-size: 18px;">Hexo</a> <a href="/tags/MSYS2/" style="font-size: 10px;">MSYS2</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/NPM/" style="font-size: 12px;">NPM</a> <a href="/tags/NRM/" style="font-size: 10px;">NRM</a> <a href="/tags/Nextcloud/" style="font-size: 10px;">Nextcloud</a> <a href="/tags/Pacman/" style="font-size: 10px;">Pacman</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/STM32/" style="font-size: 10px;">STM32</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/USB/" style="font-size: 10px;">USB</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Unity/" style="font-size: 10px;">Unity</a> <a href="/tags/WSL/" style="font-size: 12px;">WSL</a> <a href="/tags/Waline/" style="font-size: 10px;">Waline</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/apt/" style="font-size: 12px;">apt</a> <a href="/tags/live2d/" style="font-size: 10px;">live2d</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 12px;">建站</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">强化学习</a> <a href="/tags/%E6%8D%A2%E6%BA%90/" style="font-size: 12px;">换源</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 10px;">数学</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E9%A1%B5%E9%9D%A2/" style="font-size: 12px;">测试页面</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E7%BD%91%E7%9B%98/" style="font-size: 10px;">网盘</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 14px;">网络</a> <a href="/tags/%E7%BE%8E%E5%8C%96/" style="font-size: 16px;">美化</a> <a href="/tags/%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">评论系统</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">软件</a> <a href="/tags/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">邮件服务器</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">12</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/29/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/">深度学习思维导图</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/29/%E8%84%91%E5%9B%BE%E6%B5%8B%E8%AF%95/">脑图测试</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/28/Windows-%E5%BC%80%E5%90%AFHyper-v%E6%97%B6%E6%9C%AA%E7%BB%91%E5%AE%9A%E7%AB%AF%E5%8F%A3%E7%BB%91%E5%AE%9A%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/">Windows 开启Hyper-v时未绑定端口绑定失败问题</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/28/%E5%85%AC%E5%BC%8F%E6%B5%8B%E8%AF%95/">公式测试</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/28/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%9B%B8%E5%85%B3%E6%80%BB%E7%BB%93/">深度强化学习相关总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://arvinxiang.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://blog.h1msk.pro" target="_blank">本博客地址</a>
+          </li>
+        
+          <li>
+            <a href="https://github.com/H1MSK" target="_blank">我的Github</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 H1MSK<br>
+      Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme based on <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="totop"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: false,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [['$', '$'], ["\\(", "\\)"]],
+      displayMath: [["\\[", "\\]"]]
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"pluginModelPath":"assets/","display":{"position":"right","vOffset":50,"width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
