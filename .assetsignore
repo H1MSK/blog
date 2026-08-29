@@ -1,0 +1,8 @@
+# Cloudflare Workers/Pages Static Assets 忽略规则(格式同 .gitignore)
+# 防止 .git 目录等被当作静态资源上传暴露
+.git
+.wrangler
+.env*
+.dev.vars*
+wrangler.jsonc
+wrangler.toml
